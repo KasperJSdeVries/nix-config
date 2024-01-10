@@ -6,6 +6,7 @@
       systems = ["x86_64-linux"];
 
       imports = [
+        ./hosts
         ./pre-commit-hooks.nix
       ];
 
