@@ -5,7 +5,9 @@
     settings.excludes = ["flake.lock"];
 
     settings.hooks = {
+      actionlint.enable = true;
       alejandra.enable = true;
+      markdownlint.enable = true;
     };
   };
 }
