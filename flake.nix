@@ -21,29 +21,15 @@
     profiles = fs.listDirs ./profiles;
     modules = fs.listNixFiles ./modules;
   in {
-    #homeConfigurations = {
-    #  ${username} = home-manager.lib.homeManagerConfiguration {
-    #    inherit pkgs;
-    #    modules = [
-    #      ./home
-    #    ];
-    #    extraSpecialArgs = {
-    #      inherit username;
-    #    };
-    #  };
-    #};
-
     nixosConfigurations =
-      attrs.genAttrMatrix hosts profiles
-      (host: profile: "${host}" + "_" + "${profile}")
+      lib.genAttrs hosts
       (
-        host: profile:
+        host:
           lib.nixosSystem {
             inherit system;
             modules =
               [
                 (./. + "/hosts" + ("/" + "${host}"))
-                (./. + "/profiles" + ("/" + "${profile}"))
                 home-manager.nixosModules.home-manager
                 {
                   home-manager = {

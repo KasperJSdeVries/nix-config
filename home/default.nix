@@ -4,7 +4,11 @@
   fs,
   ...
 }: {
-  imports = lib.concatMap (d: map (f: (./. + ("/" + d) + ("/" + f))) (fs.listNixFiles (./. + ("/" + d)))) (fs.listDirs ./.);
+  imports =
+    [
+      ./wms/i3
+    ]
+    ++ lib.concatMap (d: map (f: (./. + ("/" + d) + ("/" + f))) (fs.listNixFiles (./. + ("/" + d)))) (fs.listDirs ./.);
 
   home = {
     inherit username;
