@@ -50,7 +50,10 @@
                     useGlobalPkgs = true;
                     useUserPackages = true;
                     users.${username} = import ./home;
-                    extraSpecialArgs = {inherit username;};
+                    extraSpecialArgs = {
+                      inherit username;
+                      inherit fs;
+                    };
                   };
                 }
               ]
