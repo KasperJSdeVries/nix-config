@@ -13,17 +13,37 @@
     inherit (nixpkgs) lib;
     inherit (import ./lib {inherit lib;}) fs;
 
-    # USER
+    # Constants
     username = "kasper";
 
-    # HOSTS
+    # Configs
     hosts = fs.listDirs ./hosts;
+    profiles = fs.listDirs ./profiles;
+    modules = fs.listNixFiles ./modules;
   in {
+    homeConfigurations = lib.genAttrs profiles (
+      name:
+        home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [
+            (./. + "/profiles" + ("/" + "${name}"))
+            ./home
+          ];
+          extraSpecialArgs = {
+            inherit username;
+          };
+        }
+    );
+
     nixosConfigurations = lib.genAttrs hosts (
       name:
         lib.nixosSystem {
           inherit system;
-          modules = [(./. + "/hosts" + ("/" + "${name}"))];
+          modules =
+            [
+              (./. + "/hosts" + ("/" + "${name}"))
+            ]
+            ++ (builtins.map (x: (./. + "/modules" + ("/" + "${x}"))) modules);
           specialArgs = {inherit username;};
         }
     );

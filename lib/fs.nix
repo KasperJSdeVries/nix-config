@@ -1,3 +1,6 @@
-{lib, ...}: {
-  listDirs = dir: builtins.attrNames (lib.filterAttrs (name: value: value == "directory") (builtins.readDir dir));
+{lib, ...}: let
+  inherit (builtins) attrNames filter readDir;
+in {
+  listDirs = dir: attrNames (lib.filterAttrs (name: value: value == "directory") (readDir dir));
+  listNixFiles = dir: filter (f: lib.hasSuffix ".nix" f) (attrNames (readDir dir));
 }
