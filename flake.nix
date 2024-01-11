@@ -11,7 +11,7 @@
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
     inherit (nixpkgs) lib;
-    inherit (import ./lib {inherit lib;}) fs;
+    inherit (import ./lib {inherit lib;}) fs attrs;
 
     # Constants
     username = "kasper";
@@ -21,32 +21,34 @@
     profiles = fs.listDirs ./profiles;
     modules = fs.listNixFiles ./modules;
   in {
-    homeConfigurations = lib.genAttrs profiles (
-      name:
-        home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [
-            (./. + "/profiles" + ("/" + "${name}"))
-            ./home
-          ];
-          extraSpecialArgs = {
-            inherit username;
-          };
-        }
-    );
+    homeConfigurations = {
+      ${username} = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [
+          ./home
+        ];
+        extraSpecialArgs = {
+          inherit username;
+        };
+      };
+    };
 
-    nixosConfigurations = lib.genAttrs hosts (
-      name:
-        lib.nixosSystem {
-          inherit system;
-          modules =
-            [
-              (./. + "/hosts" + ("/" + "${name}"))
-            ]
-            ++ (builtins.map (x: (./. + "/modules" + ("/" + "${x}"))) modules);
-          specialArgs = {inherit username;};
-        }
-    );
+    nixosConfigurations =
+      attrs.genAttrMatrix hosts profiles
+      (host: profile: "${host}" + "_" + "${profile}")
+      (
+        host: profile:
+          lib.nixosSystem {
+            inherit system;
+            modules =
+              [
+                (./. + "/hosts" + ("/" + "${host}"))
+                (./. + "/profiles" + ("/" + "${profile}"))
+              ]
+              ++ (builtins.map (x: (./. + "/modules" + ("/" + "${x}"))) modules);
+            specialArgs = {inherit username;};
+          }
+      );
 
     checks.${system}.pre-commit-check = pre-commit-hooks.lib.${system}.run {
       src = ./.;
