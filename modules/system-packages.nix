@@ -1,8 +1,12 @@
 {pkgs, ...}: {
-  environment.systemPackages = with pkgs; [
-    curl
-    neovim
-    git
-    wget
-  ];
+  environment = {
+    systemPackages = with pkgs; [
+      curl
+      neovim
+      git
+      wget
+    ];
+
+    variables.EDITOR = "nvim";
+  };
 }
