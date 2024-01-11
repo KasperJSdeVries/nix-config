@@ -15,6 +15,8 @@
 
   services.xserver.videoDrivers = ["nvidia"];
 
+  services.openssh.enable = true;
+
   hardware.opengl = {
     enable = true;
     driSupport = true;

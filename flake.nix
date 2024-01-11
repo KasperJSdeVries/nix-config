@@ -7,7 +7,7 @@
     pre-commit-hooks,
     home-manager,
     ...
-  }: let
+  } @ inputs: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
     inherit (nixpkgs) lib;
@@ -21,17 +21,17 @@
     profiles = fs.listDirs ./profiles;
     modules = fs.listNixFiles ./modules;
   in {
-    homeConfigurations = {
-      ${username} = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [
-          ./home
-        ];
-        extraSpecialArgs = {
-          inherit username;
-        };
-      };
-    };
+    #homeConfigurations = {
+    #  ${username} = home-manager.lib.homeManagerConfiguration {
+    #    inherit pkgs;
+    #    modules = [
+    #      ./home
+    #    ];
+    #    extraSpecialArgs = {
+    #      inherit username;
+    #    };
+    #  };
+    #};
 
     nixosConfigurations =
       attrs.genAttrMatrix hosts profiles
@@ -44,9 +44,21 @@
               [
                 (./. + "/hosts" + ("/" + "${host}"))
                 (./. + "/profiles" + ("/" + "${profile}"))
+                home-manager.nixosModules.home-manager
+                {
+                  home-manager = {
+                    useGlobalPkgs = true;
+                    useUserPackages = true;
+                    users.${username} = import ./home;
+                    extraSpecialArgs = {inherit username;};
+                  };
+                }
               ]
               ++ (builtins.map (x: (./. + "/modules" + ("/" + "${x}"))) modules);
-            specialArgs = {inherit username;};
+            specialArgs = {
+              inherit username;
+              inherit (inputs) nixpkgs;
+            };
           }
       );
 
