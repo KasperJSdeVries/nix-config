@@ -40,7 +40,7 @@ lsp_zero.setup()
 
 require('lspconfig').clangd.setup({})
 require('lspconfig').nil_ls.setup({})
-require('lspconfig').neocmakelsp.setup({})
+require('lspconfig').neocmake.setup({})
 require('lspconfig').lua_ls.setup({})
 
 vim.diagnostic.config({
