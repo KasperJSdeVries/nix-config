@@ -3,7 +3,11 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.grub = {
+    enable = true;
+    device = "nodev";
+    useOSProber = true;
+  };
 
   networking = {
     hostName = "jager";
