@@ -30,7 +30,9 @@ in {
 
     shellAliases = {
       gap = "git add -p";
+      gcm = "git commit -m";
       gs = "git status";
+      gck = "git checkout";
     };
 
     oh-my-zsh = {
