@@ -17,7 +17,6 @@ in {
       import = [theme-path];
       shell = {
         program = "${pkgs.tmux}/bin/tmux";
-        args = ["new-session" "-A" "-D" "-s" "main"];
       };
     };
   };

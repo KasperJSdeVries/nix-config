@@ -27,7 +27,6 @@
     escapeTime = 0;
     keyMode = "vi";
     mouse = true;
-    newSession = true;
 
     shell = "${pkgs.zsh}/bin/zsh";
     terminal = "screen-256color";
