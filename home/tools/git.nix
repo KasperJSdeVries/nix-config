@@ -9,7 +9,7 @@
   programs.gh = {
     enable = true;
 
-    extensions = [ pkgs.act ];
+    extensions = [pkgs.act];
 
     settings.editor = "nvim";
   };
