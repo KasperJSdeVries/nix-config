@@ -3,10 +3,17 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  boot.loader.grub = {
-    enable = true;
-    device = "nodev";
-    useOSProber = true;
+  boot.loader = {
+    efi = {
+      canTouchEfiVariables = true;
+      efiSysMountPoint = "/boot";
+    };
+    grub = {
+      enable = true;
+      efiSupport = true;
+      devices = ["nodev"];
+      useOSProber = true;
+    };
   };
 
   networking = {
@@ -16,6 +23,8 @@
 
     networkmanager.enable = true;
   };
+
+  time.hardwareClockInLocalTime = true;
 
   services.xserver.videoDrivers = ["nvidia"];
 
