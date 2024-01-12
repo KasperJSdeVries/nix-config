@@ -22,7 +22,5 @@ in {
     };
   };
 
-  xdg.configFile = {
-    "alacritty/theme.toml".text = alacritty-theme;
-  };
+  xdg.configFile."alacritty/theme.toml".text = alacritty-theme;
 }
