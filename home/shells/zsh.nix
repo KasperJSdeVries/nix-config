@@ -28,6 +28,11 @@ in {
     enableVteIntegration = true;
     syntaxHighlighting.enable = true;
 
+    shellAliases = {
+      gap = "git add -p";
+      gs = "git status";
+    };
+
     oh-my-zsh = {
       enable = true;
       plugins = ["git"];
