@@ -1,5 +1,11 @@
-{
-  imports = [./hardware-configuration.nix];
+{nixos-hardware, ...}: {
+  imports = [
+    nixos-hardware.nixosModules.asus-battery
+    nixos-hardware.nixosModules.common-cpu-intel-cpu-only
+    nixos-hardware.nixosModules.common-pc-laptop-ssd
+
+    ./hardware-configuration.nix
+  ];
 
   nixpkgs.config.allowUnfree = true;
 
@@ -24,9 +30,15 @@
 
   time.hardwareClockInLocalTime = true;
 
-  services.xserver.videoDrivers = ["intel"];
-
   services.openssh.enable = true;
 
-  system.stateVersion = "23.11"; # Did you read the comment?
+  hardware = {
+    opengl = {
+      enable = true;
+    };
+
+    bluetooth.enable = true;
+  };
+
+  system.stateVersion = "24.05"; # Did you read the comment?
 }
