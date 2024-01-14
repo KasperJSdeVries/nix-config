@@ -1,7 +1,26 @@
 {
+  programs.dircolors = {
+    enable = true;
+    enableBashIntegration = false;
+    enableFishIntegration = false;
+    enableZshIntegration = true;
+  };
+
   programs.starship = {
     enable = true;
+
+    enableBashIntegration = false;
+    enableFishIntegration = false;
+    enableIonIntegration = false;
+    enableNushellIntegration = false;
+    enableZshIntegration = true;
+
     settings = {
+      directory.truncation_length = 2;
+      gcloud.disabled = true;
+      memory_usage.disabled = true;
+
+      # Color scheme
       palette = "catppuccin_mocha";
 
       palettes.catppuccin_mocha = {
