@@ -23,6 +23,16 @@ end
 -- Install Plugins
 return lazy.setup("plugins", {
   change_detection = {
-    notify = false
-  }
+    notify = false,
+  },
+  dev = {
+      path = "~/.local/share/nvim/nix",
+      fallback = false,
+  },
+  performance = {
+      reset_packpath = false,
+      rtp = {
+          reset = false,
+      },
+  },
 })
