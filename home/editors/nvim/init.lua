@@ -1,1 +1,2 @@
-require("kinetics")
+require "config.lazy"
+
