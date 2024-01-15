@@ -1,5 +1,11 @@
-{
-  imports = [./hardware-configuration.nix];
+{nixos-hardware, ...}: {
+  imports = [
+    nixos-hardware.nixosModules.common-cpu-amd
+    nixos-hardware.nixosModules.common-gpu-nvidia-nonprime
+    nixos-hardware.nixosModules.common-pc-ssd
+
+    ./hardware-configuration.nix
+  ];
 
   nixpkgs.config.allowUnfree = true;
 
@@ -30,9 +36,25 @@
 
   services.openssh.enable = true;
 
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
+  hardware = {
+    nvidia = {
+      modesetting.enable = true;
+
+      powerManagement = {
+        enable = false;
+        finegrained = false;
+      };
+
+      open = false;
+
+      nvidiaSettings = true;
+    };
+
+    opengl = {
+      enable = true;
+      driSupport = true;
+      driSupport32Bit = true;
+    };
   };
 
   system.stateVersion = "24.05";
