@@ -12,8 +12,9 @@
       extraGroups = [
         username
         "users"
-        "networkmanager"
         "wheel"
+        "networkmanager"
+        "pcscd"
       ];
     };
   };

@@ -1,10 +1,20 @@
-{nixos-hardware, ...}: {
+{
+  pkgs,
+  nixos-hardware,
+  ...
+}: {
   imports = [
     nixos-hardware.nixosModules.asus-battery
     nixos-hardware.nixosModules.common-cpu-intel-cpu-only
     nixos-hardware.nixosModules.common-pc-laptop-ssd
 
     ./hardware-configuration.nix
+  ];
+
+  environment.systemPackages = with pkgs; [
+    sof-firmware
+    ccid
+    libcamera
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -31,6 +41,8 @@
   time.hardwareClockInLocalTime = true;
 
   services.openssh.enable = true;
+
+  services.pcscd.enable = true;
 
   hardware = {
     opengl = {
