@@ -6,6 +6,10 @@
 }: let
   zsh_dir = "${config.xdg.configHome}/zsh";
 in {
+  home.packages = with pkgs; [
+    direnv
+  ];
+
   programs.zsh = {
     enable = true;
 
@@ -22,6 +26,10 @@ in {
 
     envExtra = ''
       export SHELL_SESSIONS_DISABLE=1
+    '';
+
+    initExtra = ''
+      eval "$(direnv hook zsh)"
     '';
 
     enableAutosuggestions = true;
