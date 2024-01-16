@@ -2,11 +2,16 @@
   treesitterWithGrammars = pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [
     p.bash
     p.c
+    p.css
+    p.glsl
+    p.html
+    p.javascript
     p.lua
     p.markdown
     p.markdown_inline
     p.nix
     p.regex
+    p.sql
   ]);
 in {
   programs.neovim = {
@@ -24,6 +29,7 @@ in {
       neocmakelsp
       nil
       ripgrep
+      vscode-langservers-extracted
     ];
   };
 
