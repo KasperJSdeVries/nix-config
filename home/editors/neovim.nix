@@ -1,18 +1,5 @@
 {pkgs, ...}: let
-  treesitterWithGrammars = pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [
-    p.bash
-    p.c
-    p.css
-    p.glsl
-    p.html
-    p.javascript
-    p.lua
-    p.markdown
-    p.markdown_inline
-    p.nix
-    p.regex
-    p.sql
-  ]);
+  treesitterWithGrammars = pkgs.vimPlugins.nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars);
 in {
   programs.neovim = {
     enable = true;
@@ -29,7 +16,8 @@ in {
       neocmakelsp
       nil
       ripgrep
-      vscode-langservers-extracted
+      nodePackages.vscode-langservers-extracted
+      nodePackages.eslint
     ];
   };
 
