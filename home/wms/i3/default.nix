@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    alsa-utils
     playerctl
+    brightnessctl
   ];
 
   xsession = {

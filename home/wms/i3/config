@@ -110,19 +110,27 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # Multimedia keys
+# https://wiki.linuxquestions.org/wiki/XF86_keyboard_symbols
+
+# brightness
+bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+
+# granular brightness control
+bindsym Shift+XF86MonBrightnessUp exec brightnessctl set 1%+
+bindsym Shift+XF86MonBrightnessDown exec brightnessctl set 1%-
 
 # volume
-bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+ && $refresh_i3status
-bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%- && $refresh_i3status
-
+bindsym XF86AudioRaiseVolume exec wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+
+bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+ 
 # granular volume control
-bindsym $mod+XF86AudioRaiseVolume exec amixer -D pulse sset Master 1%+ && $refresh_i3status
-bindsym $mod+XF86AudioLowerVolume exec amixer -D pulse sset Master 1%- && $refresh_i3status
+bindsym $mod+XF86AudioRaiseVolume exec wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 1%+
+bindsym $mod+XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-
 
 # mute
-bindsym XF86AudioMute exec amixer sset Master toggle && $refresh_i3status
-#bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-
+bindsym XF86AudioMute exec  wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindsym XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
 # play control
 bindsym XF86AudioPlay exec playerctl play
 bindsym XF86AudioPause exec playerctl pause
