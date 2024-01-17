@@ -22,7 +22,7 @@ return {
   config = function()
     local lsp = require("lsp-zero").preset("recommended")
 
-    lsp.on_attach(function(client, bufnr)
+    lsp.on_attach(function(_, bufnr)
       ---@param description string
       ---@return table
       local opts = function(description)
@@ -78,6 +78,15 @@ return {
 
     require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 
-    lsp.setup_servers({ 'clangd', 'cssls', 'eslint','html', 'nil_ls' })
+    lsp.setup_servers({
+      'clangd',
+      'cssls',
+      'docker_compose_language_service',
+      'dockerls',
+      'html',
+      'jsonls',
+      'nil_ls',
+      'tsserver',
+    })
   end
 }

@@ -11,13 +11,15 @@ in {
 
     extraPackages = with pkgs; [
       clang-tools
+      docker-compose-language-service
       fd
       lua-language-server
       neocmakelsp
       nil
-      ripgrep
+      nodePackages.dockerfile-language-server-nodejs
       nodePackages.vscode-langservers-extracted
-      nodePackages.eslint
+      nodePackages.typescript-language-server
+      ripgrep
     ];
   };
 
