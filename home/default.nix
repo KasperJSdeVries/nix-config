@@ -26,4 +26,6 @@
   };
 
   programs.home-manager.enable = true;
+
+  home.file.".background-image".source = ../assets/wallpaper;
 }

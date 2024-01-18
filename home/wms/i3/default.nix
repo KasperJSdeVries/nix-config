@@ -2,15 +2,27 @@
   home.packages = with pkgs; [
     playerctl
     brightnessctl
+    xwallpaper
   ];
 
-  xsession = {
+  xsession.windowManager.i3 = {
     enable = true;
+    package = pkgs.i3-gaps;
 
-    windowManager.i3 = {
-      enable = true;
-      config = null;
-      extraConfig = builtins.readFile ./config;
+    config = {
+      bars = [];
+      keybindings = {};
+      startup = [
+        {
+          command = "xwallpaper --focus ~/.background-image";
+          always = true;
+          notification = false;
+        }
+      ];
     };
+
+    extraConfig = builtins.readFile ./config-v4;
   };
+
+  services.picom.enable = true;
 }

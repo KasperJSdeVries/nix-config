@@ -18,6 +18,9 @@ in {
       shell = {
         program = "${pkgs.tmux}/bin/tmux";
       };
+      window = {
+        opacity = 0.7;
+      };
     };
   };
 
