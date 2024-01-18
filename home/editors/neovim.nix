@@ -19,6 +19,7 @@ in {
       nodePackages.dockerfile-language-server-nodejs
       nodePackages.vscode-langservers-extracted
       nodePackages.typescript-language-server
+      nodePackages.yaml-language-server
       ripgrep
     ];
   };
