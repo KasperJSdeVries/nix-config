@@ -85,6 +85,7 @@ return {
             'dockerls',
             'html',
             'jsonls',
+            'neocmake',
             'nil_ls',
             'tsserver',
             'yamlls',
