@@ -1,4 +1,8 @@
-{nixos-hardware, ...}: {
+{
+  nixos-hardware,
+  config,
+  ...
+}: {
   imports = [
     nixos-hardware.nixosModules.common-cpu-amd
     nixos-hardware.nixosModules.common-gpu-nvidia-nonprime
@@ -48,6 +52,8 @@
       open = false;
 
       nvidiaSettings = true;
+
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
     };
 
     opengl = {
