@@ -28,4 +28,9 @@
   programs.home-manager.enable = true;
 
   home.file.".background-image".source = ../assets/wallpaper;
+
+  xdg.dataFile."fonts" = {
+    source = ../assets/fonts;
+    recursive = true;
+  };
 }

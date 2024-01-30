@@ -8,7 +8,10 @@
       material-design-icons
       font-awesome
 
-      #nerdfonts
+      # regular fonts
+      inter
+
+      # nerdfonts
       (nerdfonts.override {fonts = ["JetBrainsMono"];})
     ];
 
