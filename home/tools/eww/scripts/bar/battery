@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 bat=$(acpi -b)
 state=$(echo ${bat} | awk '{print $3}')

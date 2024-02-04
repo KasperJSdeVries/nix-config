@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
+    acpi
     blueberry
     networkmanager_dmenu
     python3

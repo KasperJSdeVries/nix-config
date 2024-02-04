@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 tmp_dir="/tmp/worm/spotify"
 tmp_artist_path=$tmp_dir/artist
 

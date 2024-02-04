@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 DEVICE=$(echo info | bluetoothctl | grep 'Alias:' | awk -F:  '{ print $2 }')
 DEVICE_PATH=$(upower --dump | tr : _ | grep headset | awk 'FNR == 1' | awk '{print $2}')
 BATTERY=$(upower -i $DEVICE_PATH | grep percentage | awk '{print $2}')

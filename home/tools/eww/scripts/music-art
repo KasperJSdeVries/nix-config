@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 if [[ $1 == "--art" ]]; then
     tmp_dir="$HOME/.config/eww/images"
     tmp_temp_path=$tmp_dir/temp.png

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 MODE=$(system76-power profile | grep Profile | awk '{print $3}')
 
