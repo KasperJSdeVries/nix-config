@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 level=''
 icon=''
-STATUS=$(pamixer --get-mute)
+STATUS=$(if [[ $(wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep '\[MUTED\]' | wc -l) -ne 0 ]]; then echo "true"; else echo "false"; fi)
 function fetch() {
-    muted=$(pamixer --get-mute)
-    level=$(pamixer --get-volume)
+    muted=$(if [[ $(wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep '\[MUTED\]' | wc -l) -ne 0 ]]; then echo "true"; else echo "false"; fi)
+    level=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2 * 100}')
     if [[ $muted == 'true' ]]; then
         icon=
     elif [ "$level" -le 33 ]; then
@@ -35,10 +35,10 @@ function subscribe() {
 
 toggle() {
     if [ $STATUS == "false" ]; then
-        amixer set Master toggle
+        wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
         notify-send --icon=volume-level-muted --urgency=normal "Volume is muted." "Volume has been muted, your PC has been shut the fucked up."
     else
-        amixer set Master toggle
+        wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
         notify-send --icon=volume-level-high --urgency=normal "Volume has been turned on." "Sound is now on, you will hear farts!"
     fi
 }

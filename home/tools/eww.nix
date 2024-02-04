@@ -1,8 +1,13 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     acpi
+    bc
     blueberry
+    dunst
+    libnotify
+    light
     networkmanager_dmenu
+    pavucontrol
     python3
   ];
 

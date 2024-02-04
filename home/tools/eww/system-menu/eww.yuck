@@ -75,13 +75,13 @@
         (label :class "power-saver-label" :text "Battery Saver" :limit-width 14))
       (box :class "dnd-box" :space-evenly "false" :orientation "v"
         (box :class "dnd-buttons-box" :space-evenly "false"
-          (button :class "dnd-button  ${dnd-icon == "" ? "dnd-button-on" : "dnd-button-off"}" :onclick "scripts/dnd --toggle" "${dnd-icon}")
+          (button :class "dnd-button  ${dnd-icon == "󰪑" ? "dnd-button-on" : "dnd-button-off"}" :onclick "scripts/dnd --toggle" "${dnd-icon}")
           (label :class "seperator" :text "|")
-          (button :class "dnd-arrow-btn ${dnd-icon == "" ? "dnd-arrow-btn-on" : "dnd-arrow-btn-off"}" :onclick "eww open notifications && eww close system-menu" ""))
+          (button :class "dnd-arrow-btn ${dnd-icon == "󰪑" ? "dnd-arrow-btn-on" : "dnd-arrow-btn-off"}" :onclick "eww open notifications && eww close system-menu" ""))
         (label :class "dnd-label" :text "DND" :limit-width 14)))
     (box :class "sliders" :space-evenly "false" :orientation "v" :spacing 15
       (box :orientation "h" :class "volume-slider-stuff" :space-evenly "false"
-        (button :onclick "amixer set Master toggle" :class "volume-slider-icon" volume)
+        (button :onclick "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle" :class "volume-slider-icon" volume)
         (scale :class "volume-slider"
           :value volume-slider-value
           :orientation "h"
@@ -89,7 +89,7 @@
           :marks true
           :max 100
           :min 0
-        :onchange "amixer sset Master {}%")
+        :onchange "wpctl set-volume @DEFAULT_AUDIO_SINK@ {}%")
         (button :onclick "eww close system-menu && scripts/launchApps --volume" :class "volume-slider-button" ""))
       (box :orientation "h" :class "brightness-slider-stuff" :space-evenly "false"
         (button :class "brightness-slider-icon" {brightness.icon})
@@ -100,7 +100,7 @@
           :value {brightness.level}
           :width 300
           :marks true
-        :onchange "light -S {}")
+        :onchange "brightnessctl s {}%")
         (label :tooltip "No further configuration available for this applet." :class "brightness-slider-button" :text "")))
     (box :class "music-player-container" :orientation "v" :space-evenly "false"
       (box :class "music-player-box" :hexpand "false" :vexpand "false" :space-evenly "false"

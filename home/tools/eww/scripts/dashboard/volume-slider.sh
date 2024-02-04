@@ -8,9 +8,9 @@ if [[ "$(amixer sget Master | awk -F'[][]' '/Right:|Mono:/ && NF > 1 {print $4}'
     
     if [[ ${vol} -ge 80 ]]; then
         echo "󰕾"
-        elif [[ ${vol} -ge 40 ]]; then
+    elif [[ ${vol} -ge 40 ]]; then
         echo "󰖀"
-        elif [[ ${vol} -ge 10 ]]; then
+    elif [[ ${vol} -ge 10 ]]; then
         echo "󰕿"
     else
         echo "󰝟"

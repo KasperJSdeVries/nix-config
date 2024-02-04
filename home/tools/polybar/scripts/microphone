@@ -8,8 +8,8 @@ then
 else
     if [[ $(wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep "[MUTED]" | wc -l) -eq 0 ]]
     then
-        echo ""
+        echo "󰍬"
     else
-        echo ""
+        echo "󰍭"
     fi
 fi
