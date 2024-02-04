@@ -18,6 +18,8 @@ new_window pixel 1
 # set gaps
 gaps inner 5
 gaps outer 10
+# set top gap for polybar
+gaps top 100
 
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -60,13 +62,13 @@ bindsym $mod+p mode "resize"
 bindsym $mod+Return exec alacritty
 
 # start dmenu (a program launcher)
-bindsym $mod+e exec --no-startup-id dmenu_run
+bindsym $mod+e exec --no-startup-id rofi -show drun
 
 # kill focused window
 bindsym $mod+Shift+apostrophe kill
 
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+period exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+period exec "eww open-many --toggle background-closer powermenu"
 
 # reload the configuration file
 bindsym $mod+Shift+j reload

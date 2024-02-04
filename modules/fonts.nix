@@ -5,14 +5,19 @@
 
     packages = with pkgs; [
       # icon fonts
-      material-design-icons
       font-awesome
+      material-design-icons
+      material-icons
+      material-symbols
+      weather-icons
 
       # regular fonts
+      clarity-city
+      dosis
       inter
 
       # nerdfonts
-      (nerdfonts.override {fonts = ["JetBrainsMono"];})
+      (nerdfonts.override {fonts = ["JetBrainsMono" "SpaceMono"];})
     ];
 
     fontconfig.defaultFonts = {

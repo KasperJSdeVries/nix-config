@@ -1,19 +1,19 @@
 #!/bin/sh
 
-if [[ $1 == "--toggle" ]]; then
-        if pgrep tint2; then
-                pkill tint2
-                echo "" > $HOME/.config/polybar/scripts/tray-status
-                exit 1
-        else
-                eww open --toggle background-closer && tint2 &
-                echo "" > $HOME/.config/polybar/scripts/tray-status
-        fi
-        exit
-fi
+hidden=/tmp/syshide.lock
+file="$HOME/.config/polybar/modules.ini"
 
-if [[ $1 == "--kill" ]]; then
-        pkill tint2
-        echo "" > $HOME/.config/polybar/scripts/tray-status
-        exit 1
+if [[ $(pidof stalonetray) ]]; then
+	if [[ ! -e $hidden ]]; then
+		xdo hide -n stalonetray
+		touch "$hidden"
+		perl -0 -i -pe 's/systray\ninitial=.*/systray\ninitial=2/g' "$file"
+	else
+		xdo show -n stalonetray
+		xdo raise -n stalonetray
+		rm "$hidden"
+		perl -0 -i -pe 's/systray\ninitial=.*/systray\ninitial=1/g' "$file"
+	fi
+else
+	stalonetray &
 fi

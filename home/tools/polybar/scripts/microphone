@@ -6,5 +6,10 @@ if [[ $PID -eq 0 ]]
 then
   echo ""
 else
-  echo ""
+    if [[ $(wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep "[MUTED]" | wc -l) -eq 0 ]]
+    then
+        echo ""
+    else
+        echo ""
+    fi
 fi

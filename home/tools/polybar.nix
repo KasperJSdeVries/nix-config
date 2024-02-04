@@ -4,14 +4,15 @@
     bluez-tools
     lsof
     killall
+    xdo
   ];
 
   services.polybar = {
     enable = true;
 
     package = pkgs.polybar.override {
-      githubSupport = true;
       i3Support = true;
+      githubSupport = true;
     };
 
     script = "";
