@@ -18,10 +18,6 @@
 
     dev.enable = true;
     doc.enable = true;
-
-    man = {
-      enable = true;
-      generateCaches = true;
-    };
+    man.enable = true;
   };
 }

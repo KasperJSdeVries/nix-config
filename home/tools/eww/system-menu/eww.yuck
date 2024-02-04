@@ -44,21 +44,21 @@
     (box :class "first-row-system" :hexpand "false" :vexpand "false" :space-evenly "false" :spacing 20
       (box :class "wifi-box" :space-evenly "false" :orientation "v" :hexpand "false" :vexpand "false"
         (box :class "wifi-buttons-box" :space-evenly "false"
-          (button :class "wifi-button  ${wifi-class == "" ? "wifi-button-on" : "wifi-button-off"}" :onclick "scripts/wifi --toggle" "${wifi-icon}")
+          (button :class "wifi-button ${wifi-class == "" ? "wifi-button-on" : "wifi-button-off"}" :onclick "scripts/wifi --toggle" "${wifi-icon}")
           (label :class "seperator" :text " ")
           (button :class "wifi-arrow-btn ${wifi-class == "" ? "wifi-arrow-btn-on" : "wifi-arrow-btn-off"}" :onclick "eww close system-menu && scripts/launchApps --network" ""))
         (label :class "wifi-label" :tooltip "Wi-Fi: ${wifi-status}" :text "${wifi-status}" :limit-width 9))
       (box :class "bluetooth-box" :space-evenly "false" :orientation "v"
         (box :class "bluetooth-buttons-box" :space-evenly "false"
-          (button :class "bluetooth-button  ${bluetooth-class == "" ? "bluetooth-button-on" : "bluetooth-button-off"}" :onclick "scripts/bluetooth --toggle" "${bluetooth-icon}")
+          (button :class "bluetooth-button  ${bluetooth-class != "󰂲" ? "bluetooth-button-on" : "bluetooth-button-off"}" :onclick "scripts/bluetooth --toggle" "${bluetooth-icon}")
           (label :class "seperator" :text "|")
-          (button :class "bluetooth-arrow-btn ${bluetooth-class == "" ? "bluetooth-arrow-btn-on" : "bluetooth-arrow-btn-off"}" :onclick "eww close system-menu && scripts/launchApps --bluetooth" ""))
+          (button :class "bluetooth-arrow-btn ${bluetooth-class != "󰂲" ? "bluetooth-arrow-btn-on" : "bluetooth-arrow-btn-off"}" :onclick "eww close system-menu && scripts/launchApps --bluetooth" ""))
         (label :class "bluetooth-label" :tooltip "${bluetooth-tooltip}" :text "${bluetooth-status}" :limit-width 9))
       (box :class "airplane-box" :space-evenly "false" :orientation "v"
         (box :class "airplane-buttons-box" :space-evenly "false"
-          (button :class "airplane-button  ${airplane-icon == "" ? "airplane-button-on" : "airplane-button-off"}" :onclick "scripts/airplane --toggle" "${airplane-icon}")
+          (button :class "airplane-button ${airplane-icon == "󰗕" ? "airplane-button-on" : "airplane-button-off"}" :onclick "scripts/airplane --toggle" "${airplane-icon}")
           (label :class "seperator" :text "|")
-          (label :tooltip "No further configuration available for this applet." :class "airplane-arrow-btn ${airplane-icon == "" ? "airplane-arrow-btn-on" : "airplane-arrow-btn-off"}" :text ""))
+          (label :tooltip "No further configuration available for this applet." :class "airplane-arrow-btn ${airplane-icon == "󰗕" ? "airplane-arrow-btn-on" : "airplane-arrow-btn-off"}" :text ""))
         (label :class "airplane-label" :text "Airplane" :limit-width 14)))
     (box :class "second-row-system" :hexpand "false" :vexpand "false" :space-evenly "false" :spacing 10
       (box :class "redshift-box" :space-evenly "false" :orientation "v"

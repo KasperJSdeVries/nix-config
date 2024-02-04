@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    bluez
+    (bluez.override {withExperimental = true;})
     bluez-tools
     lsof
     killall

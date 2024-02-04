@@ -1,14 +1,4 @@
-{pkgs, ...}:
-## for if you want to add a non pkgs.tmuxPlugins tmux plugin
-#let
-#  mem-cpu-load =
-#    pkgs.tmuxPlugins.mkTmuxPlugin
-#    {
-#      inherit (pkgs.tmux-mem-cpu-load) src name;
-#      pluginName = "mem-cpu-load";
-#    };
-#in
-{
+{pkgs, ...}: {
   programs.tmux = {
     enable = true;
 

@@ -4,9 +4,9 @@ STATUS="$(rfkill list | sed -n 2p | awk '{print $3}')"
 
 icon() {
     if [[ $STATUS == "no" ]]; then
-        echo ""
+        echo "󰗔"
     else
-        echo ""
+        echo "󰗕"
     fi
 }
 

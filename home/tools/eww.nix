@@ -1,5 +1,7 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
+    blueberry
+    networkmanager_dmenu
     python3
   ];
 

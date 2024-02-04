@@ -14,13 +14,13 @@ toggle() {
 icon() {
         # not connected
         if [ $(bluetoothctl show | grep "Powered: yes" | wc -c) -eq 0 ]; then
-                echo ""
+                echo "󰂲"
         else
                 # on
                 if [ $(echo info | bluetoothctl | grep 'Device' | wc -c) -eq 0 ]; then
-                        echo ""
+                        echo "󰂱"
                 else
-                        echo ""
+                        echo "󰂯"
                 fi
         fi
 }
@@ -29,15 +29,15 @@ class() {
     # off
     if [ $(bluetoothctl show | grep "Powered: yes" | wc -c) -eq 0 ]
     then
-        echo ""
+        echo "󰂲"
     else
         # on
         if [ $(echo info | bluetoothctl | grep 'Device' | wc -c) -eq 0 ]
         then
-            echo ""
+            echo "󰂱"
             # connected
         else
-            echo ""
+            echo "󰂯"
         fi
     fi
 }
