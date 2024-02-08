@@ -21,6 +21,7 @@ in {
       nodePackages.typescript-language-server
       nodePackages.yaml-language-server
       ripgrep
+      rust-analyzer
     ];
   };
 

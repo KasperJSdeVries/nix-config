@@ -87,6 +87,7 @@ return {
             'jsonls',
             'neocmake',
             'nil_ls',
+            'rust_analyzer',
             'tsserver',
             'yamlls',
         })
