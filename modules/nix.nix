@@ -15,5 +15,10 @@
 
   environment.etc."nix/inputs/nixpkgs".source = "${nixpkgs}";
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    permittedInsecurePackages = [
+      "electron-25.9.0"
+    ];
+  };
 }

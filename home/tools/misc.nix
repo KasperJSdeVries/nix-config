@@ -3,5 +3,6 @@
     gnome.nautilus
     discord
     spotify
+    obsidian
   ];
 }
