@@ -4,5 +4,7 @@
     discord
     spotify
     obsidian
+    unzip
+    zip
   ];
 }
