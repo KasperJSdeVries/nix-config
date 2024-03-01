@@ -3,18 +3,26 @@ return {
     build = ":TSUpdate",
     main = "nvim-treesitter.configs",
     dev = true,
-    opts = {
-        auto_install = false,
-        sync_install = false,
-        autopairs = {
+    opts = function(_, opts)
+        opts.auto_install = false
+        opts.sync_install = false
+        opts.autopairs = {
             enable = true,
-        },
-        highlight = {
+        }
+        opts.highlight = {
             enable = true,
             additional_vim_regex_highlighting = false,
-        },
-        indent = {
+        }
+        opts.indent = {
             enable = true,
-        },
-    }
+        }
+        if type(opts.ensure_installed) == "table" then
+            vim.list_extend(opts.ensure_installed, { "bibtex", "latex" })
+        end
+        if type(opts.highlight.disable) == "table" then
+            vim.list_extend(opts.highlight.disable, { "latex" })
+        else
+            opts.highlight.disable = { "latex" }
+        end
+    end
 }

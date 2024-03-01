@@ -13,6 +13,7 @@ in {
       clang-tools
       docker-compose-language-service
       fd
+      latexrun
       lua-language-server
       neocmakelsp
       nil
@@ -20,6 +21,7 @@ in {
       nodePackages.vscode-langservers-extracted
       nodePackages.typescript-language-server
       nodePackages.yaml-language-server
+      pplatex
       ripgrep
       rust-analyzer
     ];
