@@ -90,6 +90,7 @@ return {
             'rust_analyzer',
             'tsserver',
             'yamlls',
+            'zls',
         })
     end
 }

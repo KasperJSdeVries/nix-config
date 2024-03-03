@@ -24,6 +24,7 @@ in {
       pplatex
       ripgrep
       rust-analyzer
+      zls
     ];
   };
 
