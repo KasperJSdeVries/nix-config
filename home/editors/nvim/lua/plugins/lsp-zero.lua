@@ -83,6 +83,7 @@ return {
             'cssls',
             'docker_compose_language_service',
             'dockerls',
+            'glslls',
             'html',
             'jsonls',
             'neocmake',

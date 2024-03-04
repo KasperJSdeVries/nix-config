@@ -13,6 +13,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require "config.options"
 require "config.keymaps"
+require "config.autocommands"
 
 -- Use a protected call so we don't error out on first use
 local status_ok, lazy = pcall(require, "lazy")

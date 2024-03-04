@@ -13,6 +13,7 @@ in {
       clang-tools
       docker-compose-language-service
       fd
+      glslls
       latexrun
       lua-language-server
       neocmakelsp
