@@ -42,8 +42,9 @@ return {
 
             vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts(""))
 
-            vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end,
-                opts("find workspace [s]ymbol"))
+            vim.keymap.set("n", "<leader>vws",
+                function() require("telescope.builtin").lsp_workspace_symbols({ reuse_win = true }) end,
+                opts("find [w]orkspace [s]ymbol"))
 
             vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end,
                 opts("open [d]iagnostics window"))
@@ -51,7 +52,8 @@ return {
             vim.keymap.set("n", "<leader>]d", function() vim.diagnostic.goto_prev() end, opts("Previous diagnostic"))
 
             vim.keymap.set({ "n", "v" }, "<leader>vca", function() vim.lsp.buf.code_action() end, opts("Code Action"))
-            vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts("Find References"))
+            vim.keymap.set("n", "<leader>vrr",
+                function() require("telescope.builtin").lsp_references({ reuse_win = true }) end, opts("Find References"))
             vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts("Rename"))
             vim.keymap.set("n", "<C-h>", function() vim.lsp.buf.signature_help() end, opts(""))
         end)
