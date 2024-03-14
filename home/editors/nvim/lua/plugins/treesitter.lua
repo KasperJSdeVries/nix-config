@@ -24,5 +24,10 @@ return {
         else
             opts.highlight.disable = { "latex" }
         end
+        if type(opts.highlight.disable) == "table" then
+            vim.list_extend(opts.highlight.disable, { "svelte", "typescript" })
+        else
+            opts.highlight.disable = { "svelte", "typescript" }
+        end
     end
 }

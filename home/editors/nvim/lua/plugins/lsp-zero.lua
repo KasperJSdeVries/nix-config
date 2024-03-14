@@ -91,6 +91,7 @@ return {
             'neocmake',
             'nil_ls',
             'rust_analyzer',
+            'svelte',
             'tsserver',
             'yamlls',
             'zls',

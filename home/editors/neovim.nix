@@ -20,6 +20,7 @@ in {
       nil
       nodePackages.dockerfile-language-server-nodejs
       nodePackages.vscode-langservers-extracted
+      nodePackages.svelte-language-server
       nodePackages.typescript-language-server
       nodePackages.yaml-language-server
       pplatex
