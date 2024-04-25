@@ -32,7 +32,7 @@ in {
       eval "$(direnv hook zsh)"
     '';
 
-    enableAutosuggestions = true;
+    autosuggestion.enable = true;
     enableCompletion = true;
     enableVteIntegration = true;
     syntaxHighlighting.enable = true;

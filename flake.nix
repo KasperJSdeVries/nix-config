@@ -61,11 +61,10 @@
         actionlint.enable = true;
         alejandra.enable = true;
         markdownlint.enable = true;
-        statix.enable = true;
-      };
-
-      settings = {
-        statix.ignore = ["hardware-configuration.nix"];
+        statix = {
+          enable = true;
+          settings.ignore = ["hardware-configuration.nix"];
+        };
       };
     };
 
