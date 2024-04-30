@@ -5,6 +5,8 @@
     exercism
     spotify
     obsidian
+    renderdoc
+    valgrind
     unzip
     zip
   ];
