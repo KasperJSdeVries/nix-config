@@ -14,6 +14,7 @@ in {
       docker-compose-language-service
       fd
       glslls
+      gopls
       latexrun
       lua-language-server
       neocmakelsp

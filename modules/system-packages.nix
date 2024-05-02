@@ -13,6 +13,8 @@
     variables.EDITOR = "nvim";
   };
 
+  programs.zsh.enable = true;
+
   documentation = {
     enable = true;
 

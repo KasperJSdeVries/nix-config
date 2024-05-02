@@ -3,6 +3,7 @@
     gnome.nautilus
     discord
     exercism
+    gparted
     spotify
     obsidian
     renderdoc

@@ -20,9 +20,9 @@ return {
             vim.list_extend(opts.ensure_installed, { "bibtex", "latex" })
         end
         if type(opts.highlight.disable) == "table" then
-            vim.list_extend(opts.highlight.disable, { "latex" })
+            vim.list_extend(opts.highlight.disable, { "latex", "typescript", "javascript" })
         else
-            opts.highlight.disable = { "latex" }
+            opts.highlight.disable = { "latex", "typescript", "javascript" }
         end
         if type(opts.highlight.disable) == "table" then
             vim.list_extend(opts.highlight.disable, { "svelte", "typescript" })

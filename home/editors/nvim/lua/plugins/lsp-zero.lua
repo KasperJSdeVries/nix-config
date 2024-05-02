@@ -86,6 +86,7 @@ return {
             'docker_compose_language_service',
             'dockerls',
             'glslls',
+            'gopls',
             'html',
             'jsonls',
             'neocmake',
