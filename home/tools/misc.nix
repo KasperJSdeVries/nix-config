@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     gnome.nautilus
+    blender
     discord
     exercism
     gparted
