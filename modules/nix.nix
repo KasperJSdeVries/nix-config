@@ -1,6 +1,7 @@
 {
   lib,
   nixpkgs,
+  username,
   ...
 }: {
   nix = {
@@ -10,6 +11,7 @@
     settings = {
       experimental-features = ["nix-command" "flakes"];
       nix-path = lib.mkForce "nixpkgs=/etc/nix/inputs/nixpkgs";
+      trusted-users = ["root" username];
     };
   };
 

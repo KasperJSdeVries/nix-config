@@ -2,6 +2,7 @@
   home.packages = with pkgs; [
     gnome.nautilus
     blender
+    devenv
     discord
     exercism
     gparted
