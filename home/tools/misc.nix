@@ -6,6 +6,7 @@
     discord
     exercism
     gparted
+    godot_4
     spotify
     obsidian
     renderdoc
