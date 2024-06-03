@@ -85,6 +85,8 @@ return {
             'cssls',
             'docker_compose_language_service',
             'dockerls',
+            'gdscript',
+            'gdshader_lsp',
             'glslls',
             'gopls',
             'html',
