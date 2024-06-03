@@ -7,6 +7,7 @@
     exercism
     gparted
     godot_4
+    spicetify-cli
     spotify
     obsidian
     renderdoc
