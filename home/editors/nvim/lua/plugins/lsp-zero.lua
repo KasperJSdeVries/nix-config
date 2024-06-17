@@ -93,7 +93,6 @@ return {
             'jsonls',
             'neocmake',
             'nil_ls',
-            'pyright',
             'rust_analyzer',
             'svelte',
             'tsserver',

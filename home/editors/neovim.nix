@@ -20,7 +20,6 @@ in {
       neocmakelsp
       nil
       nodePackages.dockerfile-language-server-nodejs
-      nodePackages.pyright
       nodePackages.vscode-langservers-extracted
       nodePackages.svelte-language-server
       nodePackages.typescript-language-server
