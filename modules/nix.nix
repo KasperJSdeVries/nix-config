@@ -13,6 +13,10 @@
       nix-path = lib.mkForce "nixpkgs=/etc/nix/inputs/nixpkgs";
       trusted-users = ["root" username];
     };
+
+    gc = {
+      automatic = true;
+    };
   };
 
   environment.etc."nix/inputs/nixpkgs".source = "${nixpkgs}";

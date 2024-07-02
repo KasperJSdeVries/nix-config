@@ -43,10 +43,7 @@
   services.pcscd.enable = true;
 
   hardware = {
-    opengl = {
-      enable = true;
-    };
-
+    graphics.enable = true;
     bluetooth.enable = true;
   };
 
