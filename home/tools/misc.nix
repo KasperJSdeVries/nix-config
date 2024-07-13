@@ -9,6 +9,7 @@
     godot_4
     obsidian
     renderdoc
+    sl
     valgrind
     unzip
     zip
