@@ -59,7 +59,7 @@ bindsym $mod+p mode "resize"
 ###############
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty
 
 # start dmenu (a program launcher)
 bindsym $mod+e exec --no-startup-id rofi -show drun
@@ -157,7 +157,7 @@ set $ws9 "9"
 set $ws10 "10"
 
 assign [class="Google-chrome"] $ws2
-assign [class="Alacritty"] $ws3
+assign [class="kitty"] $ws3
 assign [class="obsidian"] $ws4
 assign [class="discord"] $ws9
 assign [class="Spotify"] $ws10
@@ -172,7 +172,7 @@ for_window [class="Google-chrome"] focus
 exec --no-startup-id dex --autostart --environment i3
 
 exec --no-startup-id i3-msg "workspace $ws2; exec google-chrome-stable"
-exec --no-startup-id i3-msg "workspace $ws3; exec alacritty"
+exec --no-startup-id i3-msg "workspace $ws3; exec kitty"
 exec --no-startup-id i3-msg "workspace $ws4; exec obsidian"
 exec --no-startup-id i3-msg "workspace $ws9; exec discord"
 exec --no-startup-id i3-msg "workspace $ws10; exec spotify"

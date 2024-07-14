@@ -4,7 +4,7 @@
     theme = "catppuccin-mocha";
     font = "Sofia Pro 16";
     location = "center";
-    terminal = "${pkgs.alacritty}/bin/alacritty";
+    terminal = "${pkgs.kitty}/bin/kitty";
     extraConfig = {
       modi = "run,drun,window";
       lines = 5;
