@@ -42,6 +42,7 @@ in {
       gcm = "git commit -m";
       gs = "git status";
       gck = "git checkout";
+      gpu = "git pull";
     };
 
     plugins = [
