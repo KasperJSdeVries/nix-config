@@ -16,6 +16,7 @@
       "ctrl+shift+h" = "previous_tab";
       "ctrl+shift+l" = "next_tab";
       "ctrl+alt+enter" = "launch --cwd=current";
+      "ctrl+alt+t" = "detach_window new-tab";
       "ctrl+alt+l" = "next_layout";
       "ctrl+alt+p" = "previous_layout";
     };
