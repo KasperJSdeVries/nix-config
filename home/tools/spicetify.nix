@@ -3,7 +3,7 @@
   spicetify-nix,
   ...
 }: let
-  spicePkgs = spicetify-nix.packages.${pkgs.system}.default;
+  spicePkgs = spicetify-nix.legacyPackages.${pkgs.system};
 
   podpahExtensions = fetchGit {
     url = "https://github.com/podpah/Spicetify-Extensions";
@@ -61,19 +61,19 @@ in {
       trashbin
       {
         src = "${podpahExtensions}/queueShuffler";
-        filename = "queueShuffler.js";
+        name = "queueShuffler.js";
       }
       {
         src = "${adufrExtensions}/quick-add-to-playlist/dist";
-        filename = "quick-add-to-playlist.js";
+        name = "quick-add-to-playlist.js";
       }
       {
         src = "${adufrExtensions}/quick-add-to-queue/dist";
-        filename = "quick-add-to-queue.js";
+        name = "quick-add-to-queue.js";
       }
       {
         src = "${genresSrc}/dist";
-        filename = "whatsThatGenre.js";
+        name = "whatsThatGenre.js";
       }
     ];
   };
