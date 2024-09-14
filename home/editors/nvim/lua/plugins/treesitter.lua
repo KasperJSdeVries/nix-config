@@ -31,5 +31,5 @@ return {
 		else
 			opts.highlight.disable = { "svelte", "typescript" }
 		end
-	end
+	end,
 }

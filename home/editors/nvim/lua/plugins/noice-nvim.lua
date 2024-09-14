@@ -1,1 +1,1 @@
-return { "folke/noice.nvim" };
+return { "folke/noice.nvim" }

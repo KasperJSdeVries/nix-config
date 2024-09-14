@@ -24,5 +24,4 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "100"
 
-vim.opt.shell = 'zsh'
-
+vim.opt.shell = "zsh"

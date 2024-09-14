@@ -1,5 +1,5 @@
 return {
-    {
-        "chrisbra/unicode.vim"
-    }
+	{
+		"chrisbra/unicode.vim",
+	},
 }

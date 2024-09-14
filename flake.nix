@@ -66,6 +66,7 @@
           enable = true;
           settings.ignore = ["hardware-configuration.nix"];
         };
+        stylua.enable = true;
       };
     };
 
