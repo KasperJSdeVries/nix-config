@@ -128,7 +128,7 @@ return {
 			"nil_ls",
 			"rust_analyzer",
 			"svelte",
-			"tsserver",
+			"ts_ls",
 			"yamlls",
 			"zls",
 		})

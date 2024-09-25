@@ -1,5 +1,5 @@
 {pkgs, ...}: let
-  treesitterWithGrammars = pkgs.vimPlugins.nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars);
+  treesitterWithGrammars = pkgs.vimPlugins.nvim-treesitter.withAllGrammars;
 in {
   programs.neovim = {
     enable = true;
@@ -14,6 +14,7 @@ in {
       latexrun
       pplatex
       ripgrep
+      tree-sitter
     ];
   };
 

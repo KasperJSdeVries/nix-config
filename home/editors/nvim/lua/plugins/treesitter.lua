@@ -16,20 +16,5 @@ return {
 		opts.indent = {
 			enable = true,
 		}
-		if type(opts.ensure_installed) == "table" then
-			vim.list_extend(opts.ensure_installed, { "bibtex", "latex" })
-		else
-			opts.ensure_installed = { "bibtex", "latex" }
-		end
-		if type(opts.highlight.disable) == "table" then
-			vim.list_extend(opts.highlight.disable, { "latex", "typescript", "javascript" })
-		else
-			opts.highlight.disable = { "latex", "typescript", "javascript" }
-		end
-		if type(opts.highlight.disable) == "table" then
-			vim.list_extend(opts.highlight.disable, { "svelte", "typescript" })
-		else
-			opts.highlight.disable = { "svelte", "typescript" }
-		end
 	end,
 }

@@ -19,7 +19,7 @@ return {
 				z = false,
 				g = false,
 			},
-			window = {
+			win = {
 				border = "single",
 			},
 		})
