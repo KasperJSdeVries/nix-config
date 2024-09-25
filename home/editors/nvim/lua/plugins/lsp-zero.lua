@@ -1,28 +1,22 @@
 ---@globals vim
 return {
 	"VonHeikemen/lsp-zero.nvim",
-	branch = "v3.x",
-	--lazy = true,
+	branch = "v4.x",
 	dependencies = {
-		-- LSP Support
 		"neovim/nvim-lspconfig",
-
-		-- Autocompletion
+		"L3MON4D3/LuaSnip",
 		"hrsh7th/nvim-cmp",
+		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-path",
-		"saadparwaiz1/cmp_luasnip",
-		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-nvim-lua",
-
-		-- Snippets
-		"L3MON4D3/LuaSnip",
+		"saadparwaiz1/cmp_luasnip",
 		"rafamadriz/friendly-snippets",
 	},
 	config = function()
-		local lsp = require("lsp-zero").preset("recommended")
+		local lsp_zero = require("lsp-zero")
 
-		lsp.on_attach(function(_, bufnr)
+		local lsp_attach = function(_, bufnr)
 			---@param description string
 			---@return table
 			local opts = function(description)
@@ -71,10 +65,20 @@ return {
 			vim.keymap.set("n", "<C-h>", function()
 				vim.lsp.buf.signature_help()
 			end, opts(""))
-		end)
+		end
+
+		lsp_zero.extend_lspconfig({
+			sign_text = true,
+			lsp_attach = lsp_attach,
+			float_boarder = "rounded",
+			capabilities = require("cmp_nvim_lsp").default_capabilities(),
+		})
 
 		local cmp = require("cmp")
+		local cmp_action = lsp_zero.cmp_action()
 		local cmp_select = { behavior = cmp.SelectBehavior.Select }
+
+		require("luasnip.loaders.from_vscode").lazy_load()
 
 		cmp.setup({
 			sources = {
@@ -84,18 +88,32 @@ return {
 				{ name = "luasnip", keyword_length = 2 },
 				{ name = "buffer", keyword_length = 3 },
 			},
-			formatting = lsp.cmp_format(),
+			window = {
+				completion = cmp.config.window.bordered(),
+				documentation = cmp.config.window.bordered(),
+			},
+			snippet = {
+				expand = function(args)
+					require("luasnip").lsp_expand(args.body)
+				end,
+			},
 			mapping = cmp.mapping.preset.insert({
+				["<C-y>"] = cmp.mapping.confirm({ select = true }),
+
+				["<C-space>"] = cmp.mapping.complete(),
+
+				["<C-u>"] = cmp.mapping.scroll_docs(-4),
+				["<C-d>"] = cmp.mapping.scroll_docs(4),
+
 				["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
 				["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
-				["<C-y>"] = cmp.mapping.confirm({ select = true }),
-				["<C-space>"] = cmp.mapping.complete(),
 			}),
+			formatting = lsp_zero.cmp_format({ details = true }),
 		})
 
-		require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
+		require("lspconfig").lua_ls.setup(lsp_zero.nvim_lua_ls())
 
-		lsp.setup_servers({
+		lsp_zero.setup_servers({
 			"clangd",
 			"cssls",
 			"docker_compose_language_service",

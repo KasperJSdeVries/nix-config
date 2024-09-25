@@ -10,24 +10,11 @@ in {
     plugins = [treesitterWithGrammars];
 
     extraPackages = with pkgs; [
-      clang-tools
-      docker-compose-language-service
       fd
-      glslls
-      gopls
       latexrun
       lua-language-server
-      neocmakelsp
-      nil
-      nodePackages.dockerfile-language-server-nodejs
-      nodePackages.vscode-langservers-extracted
-      nodePackages.svelte-language-server
-      nodePackages.typescript-language-server
-      nodePackages.yaml-language-server
       pplatex
       ripgrep
-      rust-analyzer
-      zls
     ];
   };
 
