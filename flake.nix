@@ -74,6 +74,8 @@
       packages = with pkgs; [
         alejandra
         git
+        nil
+        lua-language-server
       ];
 
       shellHook = ''

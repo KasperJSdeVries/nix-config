@@ -12,7 +12,6 @@ in {
     extraPackages = with pkgs; [
       fd
       latexrun
-      lua-language-server
       pplatex
       ripgrep
     ];
