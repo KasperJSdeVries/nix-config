@@ -11,6 +11,7 @@
     renderdoc
     sl
     valgrind
+    wakeonlan
     unzip
     zip
   ];
