@@ -21,13 +21,13 @@
   };
 
   statsSrc = pkgs.fetchzip {
-    url = "https://github.com/harbassan/spicetify-apps/releases/download/stats-v0.3.3/spicetify-stats.release.zip";
-    sha256 = "0prm8qs9zr7ly8z33iyfnsw52dhp55bkvdw00fhgdw45wjfw7gbf";
+    url = "https://github.com/harbassan/spicetify-apps/releases/download/stats-v1.1.1/spicetify-stats.release.zip";
+    sha256 = "096z2zgn96j2l9mz02p6q4z9gdckj6fhjd83s5wc57nlm2f1jr3g";
   };
 
   librarySrc = pkgs.fetchzip {
-    url = "https://github.com/harbassan/spicetify-apps/releases/download/library-v0.1.1/spicetify-library.release.zip";
-    sha256 = "1yfnkh68g1s9ch8mf9sw9dwz80bgqkvkbxqffyxz7p4nm03133f5";
+    url = "https://github.com/harbassan/spicetify-apps/releases/download/library-v1.0.0/spicetify-library.release.zip";
+    sha256 = "14plmnlrq3rb7pl2bjdya2y60ybzwq0nk96qn6ysnir82bczs36a";
   };
 in {
   imports = [spicetify-nix.homeManagerModules.default];
