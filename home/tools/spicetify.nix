@@ -15,9 +15,9 @@
     rev = "4af311ecf572cd112f3b954c1d1446eebbda0180";
   };
 
-  genresSrc = fetchGit {
-    url = "https://github.com/LucasOe/spicetify-genres.git";
-    rev = "be69d720332e4ce695574b01604e08e0404e7aa3";
+  anonymizedRadiosSrc = fetchGit {
+    url = "https://github.com/BitesizedLion/AnonymizedRadios.git";
+    rev = "1741f9ba19fe5e20183b3e65210ed6dec3bac17d";
   };
 
   statsSrc = pkgs.fetchzip {
@@ -38,6 +38,7 @@ in {
     colorScheme = "mocha";
 
     enabledCustomApps = [
+      spicePkgs.apps.marketplace
       {
         name = "library";
         src = "${librarySrc}";
@@ -51,6 +52,7 @@ in {
     ];
 
     enabledExtensions = with spicePkgs.extensions; [
+      betterGenres
       featureShuffle
       hidePodcasts
       historyShortcut
@@ -72,8 +74,8 @@ in {
         name = "quick-add-to-queue.js";
       }
       {
-        src = "${genresSrc}/dist";
-        name = "whatsThatGenre.js";
+        src = anonymizedRadiosSrc;
+        name = "AnonymizedRadios.js";
       }
     ];
   };
