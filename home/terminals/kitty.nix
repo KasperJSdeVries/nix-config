@@ -20,6 +20,6 @@
     #  "ctrl+alt+l" = "next_layout";
     #  "ctrl+alt+p" = "previous_layout";
     #};
-    theme = "Catppuccin-Mocha";
+    themeFile = "Catppuccin-Mocha";
   };
 }
