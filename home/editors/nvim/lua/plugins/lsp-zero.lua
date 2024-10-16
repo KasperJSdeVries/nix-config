@@ -4,6 +4,7 @@ return {
 	branch = "v4.x",
 	dependencies = {
 		"neovim/nvim-lspconfig",
+		"nvim-telescope/telescope.nvim",
 		"L3MON4D3/LuaSnip",
 		"hrsh7th/nvim-cmp",
 		"hrsh7th/cmp-nvim-lsp",
@@ -23,16 +24,20 @@ return {
 				return { buffer = bufnr, remap = false, desc = description }
 			end
 
+			local telescope = require("telescope.builtin")
+
 			vim.keymap.set("n", "gd", function()
-				require("telescope.builtin").lsp_definitions({ reuse_win = true })
+				telescope.lsp_definitions({ reuse_win = true })
 			end, opts("Goto Definition"))
 			vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts("Goto Declaration"))
-
+			vim.keymap.set("n", "gr", function()
+				telescope.lsp_references({ reuse_win = true })
+			end, opts("Goto References"))
 			vim.keymap.set("n", "gI", function()
-				require("telescope.builtin").lsp_implementations({ reuse_win = true })
+				telescope.lsp_implementations({ reuse_win = true })
 			end, opts("Goto Implementation"))
 			vim.keymap.set("n", "gy", function()
-				require("telescope.builtin").lsp_type_definitions({ reuse_win = true })
+				telescope.lsp_type_definitions({ reuse_win = true })
 			end, opts("Goto T[y]pe Definition"))
 
 			vim.keymap.set("n", "K", function()
@@ -40,7 +45,7 @@ return {
 			end, opts(""))
 
 			vim.keymap.set("n", "<leader>vws", function()
-				require("telescope.builtin").lsp_workspace_symbols({ reuse_win = true })
+				telescope.lsp_workspace_symbols({ reuse_win = true })
 			end, opts("find [w]orkspace [s]ymbol"))
 
 			vim.keymap.set("n", "<leader>vd", function()
@@ -56,9 +61,6 @@ return {
 			vim.keymap.set({ "n", "v" }, "<leader>vca", function()
 				vim.lsp.buf.code_action()
 			end, opts("Code Action"))
-			vim.keymap.set("n", "<leader>vrr", function()
-				require("telescope.builtin").lsp_references({ reuse_win = true })
-			end, opts("Find References"))
 			vim.keymap.set("n", "<leader>vrn", function()
 				vim.lsp.buf.rename()
 			end, opts("Rename"))
