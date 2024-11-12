@@ -12,9 +12,14 @@
       experimental-features = ["nix-command" "flakes"];
       nix-path = lib.mkForce "nixpkgs=/etc/nix/inputs/nixpkgs";
       trusted-users = ["root" username];
+      auto-optimise-store = true;
     };
 
     gc = {
+      automatic = true;
+    };
+
+    optimise = {
       automatic = true;
     };
   };
