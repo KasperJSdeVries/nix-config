@@ -1,4 +1,8 @@
 {pkgs, ...}: {
+  home.packages = with pkgs; [
+    graphite-cli
+  ];
+
   programs.git = {
     enable = true;
 

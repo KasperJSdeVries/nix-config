@@ -29,7 +29,7 @@ in {
     '';
 
     initExtra = ''
-      eval "$(direnv hook zsh)"
+      eval "$(${pkgs.graphite-cli}/bin/gt completion)"
     '';
 
     autosuggestion.enable = true;
