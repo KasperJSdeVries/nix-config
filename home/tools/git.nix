@@ -13,19 +13,7 @@
       init = {
         defaultBranch = "main";
       };
-
-      "includeIf \"gitdir:~/projects/school/\"" = {
-        path = "~/projects/school/.gitconfig";
-      };
     };
-  };
-
-  home.file."projects/school/.gitconfig" = {
-    text = ''
-      [user]
-      name = Kasper de Vries
-      email = k.j.s.devries@student.tudelft.nl
-    '';
   };
 
   programs.gh = {
