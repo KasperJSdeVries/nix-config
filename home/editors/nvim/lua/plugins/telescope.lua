@@ -13,13 +13,7 @@ return {
 				builtin.find_files()
 			end
 		end)
-		vim.keymap.set("n", "<leader>ps", function()
-			vim.ui.input({ prompt = "Grep: " }, function(input)
-				if input and input ~= "" then
-					builtin.grep_string({ search = input })
-				end
-			end)
-		end, { desc = "[s]earch with grep" })
+		vim.keymap.set("n", "<leader>ps", builtin.live_grep, { desc = "[s]earch with grep" })
 		vim.keymap.set("n", "<leader>vh", builtin.help_tags, { desc = "show [h]elp tags" })
 	end,
 }
