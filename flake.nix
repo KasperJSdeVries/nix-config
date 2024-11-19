@@ -76,6 +76,7 @@
         git
         nil
         lua-language-server
+        yaml-language-server
       ];
 
       shellHook = ''
