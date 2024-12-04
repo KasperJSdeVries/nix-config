@@ -2,6 +2,8 @@
   programs.tmux = {
     enable = true;
 
+    prefix = "C-a";
+
     plugins = [
       {
         plugin = pkgs.tmuxPlugins.catppuccin;
