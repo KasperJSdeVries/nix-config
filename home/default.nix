@@ -17,11 +17,6 @@
 
     keyboard = {
       layout = "us";
-      options = [
-        "eurosign:e"
-        "caps:escape"
-      ];
-      variant = "dvorak";
     };
   };
 
