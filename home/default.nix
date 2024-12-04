@@ -17,6 +17,9 @@
 
     keyboard = {
       layout = "us";
+      options = [
+        "caps:escape"
+      ];
     };
   };
 
