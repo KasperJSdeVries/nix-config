@@ -156,13 +156,13 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
-assign [class="Google-chrome"] $ws2
+assign [class="firefox"] $ws2
 assign [class="kitty"] $ws3
 assign [class="obsidian"] $ws4
 assign [class="discord"] $ws9
 assign [class="Spotify"] $ws10
 
-for_window [class="Google-chrome"] focus
+for_window [class="kitty"] focus
 
 #############################################
 # autostart applications/services on login: #
@@ -171,7 +171,7 @@ for_window [class="Google-chrome"] focus
 # Start XDG autostart .desktop files using dex.
 exec --no-startup-id dex --autostart --environment i3
 
-exec --no-startup-id i3-msg "workspace $ws2; exec google-chrome-stable"
+exec --no-startup-id i3-msg "workspace $ws2; exec firefox"
 exec --no-startup-id i3-msg "workspace $ws3; exec kitty"
 exec --no-startup-id i3-msg "workspace $ws4; exec obsidian"
 exec --no-startup-id i3-msg "workspace $ws9; exec discord"
