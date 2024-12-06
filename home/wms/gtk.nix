@@ -13,13 +13,14 @@
   gtk = {
     enable = true;
     theme = {
-      name = "Catppuccin-Mocha-Compact-Pink-Dark";
-      package = pkgs.catppuccin-gtk.override {
-        accents = ["pink"];
-        size = "compact";
-        tweaks = ["rimless" "black"];
-        variant = "mocha";
-      };
+      name = "Adwaita-dark";
+      package = pkgs.gnome-themes-extra;
     };
+  };
+
+  qt = {
+    enable = true;
+    platformTheme.name = "adwaita";
+    style.name = "adwaita-dark";
   };
 }
