@@ -22,7 +22,7 @@
       ];
     };
 
-    extraConfig = builtins.readFile ./config-v4;
+    extraConfig = builtins.readFile ./config;
   };
 
   services.picom.enable = true;
