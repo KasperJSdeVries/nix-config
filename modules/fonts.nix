@@ -26,7 +26,8 @@
       proggyfonts
 
       # nerdfonts
-      (nerdfonts.override {fonts = ["JetBrainsMono" "SpaceMono"];})
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.space-mono
     ];
 
     fontconfig.defaultFonts = {
