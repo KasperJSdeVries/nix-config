@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   environment = {
     systemPackages = with pkgs; [
+      blueberry
       curl
       linux-manual
       man-pages

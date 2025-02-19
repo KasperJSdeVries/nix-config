@@ -60,6 +60,11 @@
       enable = true;
       enable32Bit = true;
     };
+
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
   };
 
   system.stateVersion = "24.05";
