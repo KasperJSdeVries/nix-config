@@ -20,6 +20,4 @@ vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = "[Y]ank line to system clipbo
 
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], { desc = "[d]elete without changing pastebuffer" })
 
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, { desc = "[f]ormat current file" })
-
 vim.keymap.set("n", "Q", "<nop>")
