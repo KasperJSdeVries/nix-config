@@ -10,6 +10,7 @@
     obsidian
     renderdoc
     sl
+    steam
     valgrind
     wakeonlan
     unzip

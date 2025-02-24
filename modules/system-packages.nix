@@ -7,6 +7,7 @@
       man-pages
       man-pages-posix
       neovim
+      networkmanager_dmenu
       git
       wget
     ];
