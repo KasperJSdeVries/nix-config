@@ -9,6 +9,7 @@
     godot_4
     obsidian
     renderdoc
+    shutter
     sl
     steam
     valgrind
