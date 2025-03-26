@@ -18,6 +18,8 @@ vim.opt.undofile = true
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
+vim.o.inccommand = "split"
+
 vim.opt.termguicolors = true
 
 vim.opt.updatetime = 50
