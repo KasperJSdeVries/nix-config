@@ -5,6 +5,7 @@
     devenv
     discord
     exercism
+    ffmpeg
     gparted
     godot_4
     obsidian
@@ -13,6 +14,7 @@
     sl
     steam
     valgrind
+    vlc
     wakeonlan
     unzip
     zip
