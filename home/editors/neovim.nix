@@ -11,8 +11,6 @@ in {
 
     extraPackages = with pkgs; [
       fd
-      latexrun
-      pplatex
       ripgrep
       tree-sitter
     ];
