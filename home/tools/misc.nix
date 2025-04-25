@@ -1,13 +1,14 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    nautilus
     blender
+    btop
     devenv
     discord
     exercism
     ffmpeg
     gparted
     godot_4
+    nautilus
     obsidian
     renderdoc
     shutter
