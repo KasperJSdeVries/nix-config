@@ -151,7 +151,7 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
-assign [class="firefox"] $ws2
+assign [class="librewolf"] $ws2
 assign [class="kitty"] $ws3
 assign [class="obsidian"] $ws4
 assign [class="discord"] $ws9
@@ -172,7 +172,7 @@ workspace $ws10 output HDMI-0
 # Start XDG autostart .desktop files using dex.
 exec --no-startup-id dex --autostart --environment i3
 
-exec --no-startup-id i3-msg "workspace $ws2; exec firefox"
+exec --no-startup-id i3-msg "workspace $ws2; exec librewolf"
 exec --no-startup-id i3-msg "workspace $ws3; exec kitty"
 exec --no-startup-id i3-msg "workspace $ws4; exec obsidian"
 exec --no-startup-id i3-msg "workspace $ws9; exec discord"
