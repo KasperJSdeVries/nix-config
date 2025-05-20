@@ -28,7 +28,7 @@ in {
       export SHELL_SESSIONS_DISABLE=1
     '';
 
-    initExtra = ''
+    initContent = ''
       eval "$(${pkgs.graphite-cli}/bin/gt completion)"
     '';
 
