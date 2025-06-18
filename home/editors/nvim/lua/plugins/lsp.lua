@@ -86,6 +86,14 @@ return {
 			end,
 		})
 
+		vim.api.nvim_create_user_command("LspLogClear", function()
+			local lsp_log_path = vim.fn.stdpath("state") .. "/lsp.log"
+			print(lsp_log_path)
+			if io.close(io.open(lsp_log_path, "w+b")) == false then
+				vim.notify("Clearing LSP Log failed.", vim.log.levels.WARN)
+			end
+		end, { nargs = 0 })
+
 		vim.diagnostic.config({
 			severity_sort = true,
 			float = { border = "rounded", source = "if_many" },
