@@ -7,12 +7,25 @@ in {
     defaultEditor = true;
     vimAlias = true;
 
-    plugins = [treesitterWithGrammars];
+    plugins = [
+      treesitterWithGrammars
+    ];
 
     extraPackages = with pkgs; [
       fd
       ripgrep
       tree-sitter
+      lua-language-server
+      clang-tools
+      vscode-langservers-extracted
+      docker-compose-language-service
+      docker-language-server
+      glslls
+      gopls
+      neocmakelsp
+      nil
+      rust-analyzer
+      zls
     ];
   };
 

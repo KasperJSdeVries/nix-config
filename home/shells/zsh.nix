@@ -26,6 +26,7 @@ in {
 
     envExtra = ''
       export SHELL_SESSIONS_DISABLE=1
+      export SEARXNG_API_URL="https://search.rhscz.eu/"
     '';
 
     initContent = ''
