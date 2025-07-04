@@ -24,9 +24,16 @@ in {
       gopls
       neocmakelsp
       nil
+      yaml-language-server
       rust-analyzer
       zls
     ];
+
+    extraPython3Packages = pyPkgs:
+      with pyPkgs; [
+        pygls
+        ollama
+      ];
   };
 
   xdg.configFile."nvim" = {
