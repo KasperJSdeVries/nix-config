@@ -9,6 +9,8 @@
     userName = "KasperJSdeVries";
     userEmail = "89792927+KasperJSdeVries@users.noreply.github.com";
 
+    lfs.enable = true;
+
     extraConfig = {
       init = {
         defaultBranch = "main";
