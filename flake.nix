@@ -21,37 +21,34 @@
     profiles = fs.listDirs ./profiles;
     modules = fs.listNixFiles ./modules;
   in {
-    nixosConfigurations =
-      lib.genAttrs hosts
-      (
-        host:
-          lib.nixosSystem {
-            inherit system;
-            modules =
-              [
-                (./. + "/hosts" + ("/" + "${host}"))
-                home-manager.nixosModules.home-manager
-                {
-                  home-manager = {
-                    useGlobalPkgs = true;
-                    useUserPackages = true;
-                    users.${username} = import ./home;
-                    extraSpecialArgs = {
-                      inherit username;
-                      inherit fs;
-                      inherit (inputs) spicetify-nix;
-                    };
+    nixosConfigurations = lib.genAttrs hosts (
+      host:
+        lib.nixosSystem {
+          inherit system;
+          modules =
+            [
+              (./. + "/hosts" + ("/" + "${host}"))
+              home-manager.nixosModules.home-manager
+              {
+                home-manager = {
+                  useGlobalPkgs = true;
+                  useUserPackages = true;
+                  users.${username} = import ./home;
+                  extraSpecialArgs = {
+                    inherit username;
+                    inherit fs;
+                    inherit (inputs) spicetify-nix;
                   };
-                }
-              ]
-              ++ (builtins.map (x: (./. + "/modules" + ("/" + "${x}"))) modules);
-            specialArgs = {
-              inherit username;
-              inherit (inputs) nixpkgs;
-              inherit (inputs) nixos-hardware;
-            };
-          }
-      );
+                };
+              }
+            ]
+            ++ (builtins.map (x: (./. + "/modules" + ("/" + "${x}"))) modules);
+          specialArgs = {
+            inherit username;
+            inherit (inputs) nixpkgs nixos-hardware lanzaboote;
+          };
+        }
+    );
 
     checks.${system}.pre-commit-check = pre-commit-hooks.lib.${system}.run {
       src = ./.;
@@ -103,6 +100,15 @@
     };
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v0.4.2";
+      inputs = {
+        flake-parts.follows = "flake-parts";
+        nixpkgs.follows = "nixpkgs";
+        pre-commit-hooks-nix.follows = "pre-commit-hooks";
+      };
+    };
 
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";

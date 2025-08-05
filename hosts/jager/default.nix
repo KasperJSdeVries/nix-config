@@ -8,23 +8,11 @@
     nixos-hardware.nixosModules.common-gpu-nvidia-nonprime
     nixos-hardware.nixosModules.common-pc-ssd
 
+    ./secure-boot.nix
     ./hardware-configuration.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
-
-  boot.loader = {
-    efi = {
-      canTouchEfiVariables = true;
-      efiSysMountPoint = "/boot";
-    };
-    grub = {
-      enable = true;
-      efiSupport = true;
-      devices = ["nodev"];
-      useOSProber = true;
-    };
-  };
 
   networking = {
     hostName = "jager";
